@@ -1,0 +1,109 @@
+:root {
+  --bg-color: #050505;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --accent: #d4af37; /* gold/brass accent */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body {
+  background: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── loader ── */
+#loader {
+  position: fixed; inset: 0; z-index: 100;
+  background: var(--bg-color);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 28px;
+  transition: opacity 0.8s ease;
+}
+#loader.done { opacity: 0; pointer-events: none; }
+#loader .logo {
+  font-size: 1.2rem; letter-spacing: 0.4em;
+  color: var(--accent); text-transform: uppercase; font-weight: 600;
+}
+#loader .bar {
+  width: 180px; height: 1px; background: rgba(212, 175, 55, 0.2);
+  position: relative; overflow: hidden;
+}
+#loader .bar i {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
+  background: var(--accent); display: block;
+  transition: width 0.2s ease;
+}
+
+/* ── scroll stage ── */
+#track { height: 700vh; position: relative; } /* Length of the scroll for 5 videos */
+#stage {
+  position: sticky; top: 0; height: 100vh; width: 100%;
+  overflow: hidden;
+}
+#film {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  display: block; opacity: 0.6; /* Dim slightly for text */
+}
+#vignette {
+  position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, rgba(5,5,5,0.9) 100%);
+}
+
+/* ── captions ── */
+.caption {
+  position: absolute; z-index: 10;
+  opacity: 0; pointer-events: none;
+  will-change: opacity, transform;
+}
+.caption .logo {
+  font-size: 1rem; letter-spacing: 0.3em;
+  color: var(--accent); margin-bottom: 1rem;
+}
+.caption .title {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 300; letter-spacing: -0.02em; line-height: 1.1;
+}
+.caption p {
+  margin-top: 14px; font-size: clamp(16px, 1.5vw, 22px);
+  color: var(--text-secondary); font-weight: 300;
+}
+
+.cap-center { left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; }
+.cap-left { left: 10vw; top: 50%; transform: translateY(-50%); }
+.cap-right { right: 10vw; top: 50%; transform: translateY(-50%); text-align: right; }
+
+#scroll-cue {
+  position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%);
+  z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--text-secondary); font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; transition: opacity 0.5s ease;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+/* ── brand footer ── */
+.brand-footer {
+  width: 100vw; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  background-color: var(--bg-color);
+  position: relative; z-index: 10; padding: 4rem 2rem;
+}
+.footer-content { max-width: 800px; text-align: center; }
+.footer-content .logo { font-size: 2rem; color: var(--accent); letter-spacing: 0.3em; }
+.stats {
+  display: flex; justify-content: space-around; margin: 4rem 0;
+  border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 3rem 0;
+}
+.stat { display: flex; flex-direction: column; }
+.stat .num { font-size: 3rem; font-weight: 300; color: var(--accent); }
+.stat .label { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-secondary); margin-top: 0.5rem; }
+.manifesto { font-size: 1.5rem; line-height: 1.5; font-weight: 300; color: #ddd; margin-bottom: 4rem; }
+.cta {
+  background: var(--text-primary); color: var(--bg-color); border: none;
+  padding: 1rem 3rem; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;
+}
+.cta:hover { background: var(--accent); }
