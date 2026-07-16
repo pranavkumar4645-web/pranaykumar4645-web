@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Real Estate</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="logo">AURUM</div>
+    <div class="bar"><i id="loadbar"></i></div>
+  </div>
+
+  <div id="track">
+    <div id="stage">
+      <!-- The Canvas Scrubber -->
+      <canvas id="film"></canvas>
+      <div id="vignette"></div>
+
+      <!-- Chapter Captions -->
+      <!-- data-in, data-hold, data-out represent scroll percentages -->
+      <div class="caption cap-center" data-in="-0.01" data-hold="0.02" data-out="0.10">
+        <div class="logo">AURUM</div>
+        <h1 class="title">The Apex of Living</h1>
+        <p>Where horizon meets architecture.</p>
+      </div>
+
+      <div class="caption cap-left" data-in="0.15" data-hold="0.22" data-out="0.30">
+        <h1 class="title">The Grandeur</h1>
+        <p>Step into boundless space.</p>
+      </div>
+
+      <div class="caption cap-right" data-in="0.35" data-hold="0.42" data-out="0.50">
+        <h1 class="title">The Details</h1>
+        <p>Crafted from the earth's finest.</p>
+      </div>
+
+      <div class="caption cap-left" data-in="0.55" data-hold="0.62" data-out="0.70">
+        <h1 class="title">The Sanctuary</h1>
+        <p>Wake up to the world.</p>
+      </div>
+
+      <div class="caption cap-center" data-in="0.75" data-hold="0.85" data-out="0.95">
+        <h1 class="title">The Escape</h1>
+        <p>Infinity at your doorstep.</p>
+      </div>
+
+      <div id="scroll-cue">Scroll to Explore ↓</div>
+    </div>
+  </div>
+
+  <!-- Brand Homepage Footer Section -->
+  <section class="brand-footer" id="outro">
+    <div class="footer-content">
+      <div class="logo">AURUM</div>
+      <div class="stats">
+        <div class="stat">
+          <span class="num">12,500</span>
+          <span class="label">SQ FT</span>
+        </div>
+        <div class="stat">
+          <span class="num">6</span>
+          <span class="label">BEDROOMS</span>
+        </div>
+        <div class="stat">
+          <span class="num">8</span>
+          <span class="label">BATHROOMS</span>
+        </div>
+      </div>
+      <p class="manifesto">A masterpiece of modern design, perched on the edge of the world. Every detail has been meticulously crafted to provide an unparalleled living experience.</p>
+      <button class="cta">Inquire Now</button>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
